@@ -10,15 +10,25 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-    to bottom right,
-    rgb(var(--background-start-rgb)),
-    rgb(var(--background-end-rgb))
-  );
+  background-image: url('/background.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Parallax-like effect */
   min-height: 100vh;
-  overflow: hidden; /* Prevent scroll bars from moving heart */
+  overflow: hidden;
   margin: 0;
   padding: 0;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4); /* Dark overlay for readability */
+  z-index: -1;
 }
 
 /* Glassmorphism utility */

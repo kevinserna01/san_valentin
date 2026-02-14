@@ -3,6 +3,7 @@
 import { useState } from "react";
 import HeartGame from "@/components/HeartGame";
 import ProposalModal from "@/components/ProposalModal";
+import MusicPlayer from "@/components/MusicPlayer";
 import confetti from "canvas-confetti";
 
 export default function Home() {
@@ -58,13 +59,22 @@ export default function Home() {
       <ProposalModal isOpen={gameWon && !accepted} onAccept={handleAccept} />
 
       {accepted && (
-        <div className="z-50 text-center animate-bounce-in">
-          <h1 className="text-6xl md:text-8xl font-bold text-white drop-shadow-lg mb-4">
-            ¡SABÍA QUE DIRÍAS QUE SÍ!
+        <div className="z-50 p-8 glass rounded-3xl text-center animate-bounce-in mx-4 max-w-2xl border-4 border-pink-300 shadow-2xl bg-black/40 backdrop-blur-md">
+          <h1 className="text-4xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-red-300 to-pink-300 drop-shadow-sm mb-6 animate-pulse">
+            ¡SABÍA QUE DIRÍAS QUE SÍ! 💖
           </h1>
-          <p className="text-3xl text-pink-100">Te amo ❤️</p>
+          <p className="text-2xl md:text-3xl text-white font-medium mb-6 leading-relaxed">
+            Me haces la persona más feliz del mundo.<br/>
+            Gracias por este primer San Valentín juntos.<br/>
+            ¡Que sea el primero de muchos!
+          </p>
+          <p className="text-4xl md:text-5xl font-bold text-pink-400 mt-4 drop-shadow-md">
+            Te amo infinito 🌹
+          </p>
         </div>
       )}
+      
+      <MusicPlayer />
     </main>
   );
 }

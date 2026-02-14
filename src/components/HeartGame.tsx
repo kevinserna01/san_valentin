@@ -26,16 +26,16 @@ export default function HeartGame({ onCatch }: HeartGameProps) {
   return (
     <div
       onClick={onCatch}
-      className="absolute cursor-pointer transition-all duration-300 ease-in-out hover:scale-110 active:scale-95 select-none touch-manipulation"
+      className="absolute cursor-pointer transition-all duration-300 ease-in-out hover:scale-110 active:scale-95 select-none touch-manipulation transform-gpu"
       style={{
         top: position.top,
         left: position.left,
         fontSize: "var(--heart-size, 4rem)", 
-        transform: "translate(-50%, -50%)", 
-        filter: "drop-shadow(0 0 10px rgba(255, 255, 255, 0.5))",
+        transform: "translate(-50%, -50%) translateZ(0)", // Force hardware acceleration
+        willChange: "top, left",
       }}
     >
-      <span className="text-6xl md:text-8xl">❤️</span>
+      <span className="text-6xl md:text-8xl" style={{ textShadow: "0px 0px 10px rgba(255, 255, 255, 0.5)" }}>❤️</span>
     </div>
   );
 }
